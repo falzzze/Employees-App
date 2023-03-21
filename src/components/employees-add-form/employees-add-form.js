@@ -1,6 +1,8 @@
 import { Component } from 'react';
 
-import './employees-add-form.css'
+// import './employees-add-form.css'
+import './employees-add-form.scss'
+
 
 class EmployeesAddForm extends Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class EmployeesAddForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    if (this.state.name < 3 || !this.state.salary) return;
     this.props.onAdd(this.state.name, this.state.salary);
     this.setState({
       name: "",
